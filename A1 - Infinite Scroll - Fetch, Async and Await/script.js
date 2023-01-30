@@ -1,6 +1,4 @@
-
-
-const postsContainer = document.getElementById('posts-container');
+const postsContainer = document.getElementById('post-container');
 const loading = document.querySelector('.loader');
 const filter = document.getElementById('filter');
 
@@ -15,5 +13,25 @@ let page = 1;
 
 
 function showPosts(data) {
-    console.log(data);
+    
+ 
+
+   data.forEach(post => {
+   const postEl = document.createElement('div');
+   postEl.classList.add('post');
+
+   postEl.innerHTML = `
+   <div class="number">${post.id}</div>
+   <div class="post-info"> 
+    <h2 class="post-title">${post.title}</h2>
+    <p class="post-body">${post.body}</p>
+   </div>
+   
+   `;
+
+   postsContainer.appendChild(postEl);
+
+})
+
+
 }
